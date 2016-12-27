@@ -20,7 +20,7 @@ if [ $check_line -lt 0 ]; then
   echo $check_line > $TMP_ROOT/lines.txt
 
 fi
-(tail -n $check_line $LOGFILENAME | grep 'logged in') > $TMP_ROOT/login.txt
+(tail -n $check_line $LOGFILENAME | grep 'logged in' | cut -d$' ' -f4-) > $TMP_ROOT/login.txt
 
 cat $TMP_ROOT/login.txt | while read  line
 do
@@ -28,6 +28,6 @@ do
   #if echo $line | grep "logged in"; then
     set -- $line
     time=$1
-    echo "$time minecraft server logged in!\n{$line}" | sh -x /home/tomohiro_kumagai/bin/webhook.sh
+    echo "{$line}" | sh -x /home/tomohiro_kumagai/bin/webhook.sh
   #fi
 done
