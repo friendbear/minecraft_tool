@@ -3,7 +3,7 @@
 set -eu
 
 #Incoming WebHooksのURL
-WEBHOOKURL="https://hooks.slack.com/services/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"
+WEBHOOKURL=""
 #メッセージを保存する一時ファイル
 cd /home/tomohiro_kumagai
 MESSAGEFILE=$(mktemp -p webhooks)
